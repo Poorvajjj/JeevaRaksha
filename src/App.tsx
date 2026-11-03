@@ -44,6 +44,7 @@ import { AlertsModal } from './components/AlertsModal';
 import { VetDashboard } from './components/VetDashboard';
 import { CoopDashboard } from './components/CoopDashboard';
 import { SettingsModal } from './components/SettingsModal';
+import { ProjectPdfWalkthroughModal } from './components/ProjectPdfWalkthroughModal';
 
 import {
   DEMO_USERS,
@@ -133,6 +134,13 @@ export default function App() {
   const [isFindVetOpen, setIsFindVetOpen] = useState(false);
   const [isAlertsOpen, setIsAlertsOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenPdf = () => setIsPdfModalOpen(true);
+    window.addEventListener('open-pdf-walkthrough', handleOpenPdf as EventListener);
+    return () => window.removeEventListener('open-pdf-walkthrough', handleOpenPdf as EventListener);
+  }, []);
 
   // Active Triage Result
   const [activeTriage, setActiveTriage] = useState<{
@@ -1126,6 +1134,13 @@ export default function App() {
         onLanguageChange={setLanguage}
         onResetDemo={handleResetDemoData}
         geminiActive={geminiActive}
+      />
+
+      {/* 11. Project PDF Walkthrough & Download Modal */}
+      <ProjectPdfWalkthroughModal
+        isOpen={isPdfModalOpen}
+        onClose={() => setIsPdfModalOpen(false)}
+        language={language}
       />
     </div>
   );

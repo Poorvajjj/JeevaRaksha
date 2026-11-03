@@ -119,6 +119,27 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </button>
           </div>
 
+          {/* Project PDF Walkthrough Report */}
+          <div className="p-3 bg-[#EBF5EE] border border-[#C6E2D0] rounded-xl flex items-center justify-between">
+            <div>
+              <span className="font-bold text-[#1C251D] block">
+                {language === 'kn' ? 'ಪ್ರಾಜೆಕ್ಟ್ ವರದಿ & PDF ಡೌನ್‌ಲೋಡ್' : 'Project Walkthrough & PDF Report'}
+              </span>
+              <p className="text-[11px] text-[#2D6A4F]">
+                {language === 'kn' ? 'ಸಂಪೂರ್ಣ ಪ್ರಾಜೆಕ್ಟ್ ವಿವರಣೆ ಮತ್ತು PDF ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ' : 'View full project documentation and download PDF report'}
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                onClose();
+                window.dispatchEvent(new CustomEvent('open-pdf-walkthrough'));
+              }}
+              className="px-3 py-1.5 bg-[#1E6B38] text-white rounded-lg font-bold text-xs hover:bg-[#154D27] shadow-xs"
+            >
+              📄 PDF View
+            </button>
+          </div>
+
           {/* About & Boundaries */}
           <div className="text-[11px] text-[#78857B] space-y-1">
             <p>
