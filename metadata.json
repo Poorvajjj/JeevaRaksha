@@ -1,0 +1,8 @@
+{
+  "name": "JeevaRaksha — AI-Powered Livestock Health Assistant",
+  "description": "Mobile-first livestock health assistant for Karnataka dairy farmers, vets, and dairy cooperative officers with bilingual English & Kannada triage, calm reassuring guidance, and offline sync.",
+  "requestFramePermissions": [
+    "CAMERA_AND_MICROPHONE"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
